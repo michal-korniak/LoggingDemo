@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  seq:
+    image: datalust/seq:latest
+    environment:
+      - ACCEPT_EULA=Y
+    volumes:
+      - seq_data:/data
+    ports:
+      - target: 80
+        published: 5341
+
+volumes:
+  seq_data:
+    driver: local
