@@ -1,7 +1,6 @@
 ﻿using ConsoleWithLogger;
 using LoggingDemo;
 using Microsoft.Extensions.Logging;
-using OpenTelemetry.Trace;
 using System.Diagnostics;
 
 public class Program
@@ -47,7 +46,7 @@ public class Program
                 using (Telemetry.ActivitySource.StartActivity("CatchBlock"))
                 {
                     ex.Data.Add("xx", "yy");
-                    logger.LogError(new ArgumentException("eee", ex), "Something's wrong.");
+                    logger.LogError(new CustomException(ex), "Something's wrong.");
                 }
                 Activity.Current.SetStatus(ActivityStatusCode.Error, ex.Message);
             }

@@ -9,6 +9,7 @@ services:
     ports:
       - target: 80
         published: 5341
+    platform: linux
 
 volumes:
   seq_data:

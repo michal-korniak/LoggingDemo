@@ -2,6 +2,7 @@ version: "3.9"
 services:
   jaeger:
     image: jaegertracing/all-in-one
+    platform: linux
     environment:
       - COLLECTOR_OTLP_ENABLED=true
     ports:
